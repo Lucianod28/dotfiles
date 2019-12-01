@@ -1,0 +1,51 @@
+let mapleader=" "
+
+set nocompatible    " Use vim settings
+syntax on           " Enable syntax highlighting
+
+" Appearance
+set number relativenumber   " Use relative line numbers
+set colorcolumn=100         " Highlight column 100
+set visualbell              " No more error sound
+set cursorline              " Highlight the current line
+set scrolloff=10            " Start scrolling when we're 10 lines from the bottom of the screen
+colorscheme industry
+
+" Plugins
+call plug#begin('~/.vim/plugged')
+
+call plug#end()
+
+" Indentation
+filetype indent on  " Turn filetype detection on and indent based on filetype
+set smartindent		" Indent according to filetype
+set autoindent		" Copy indent from previous line to next line
+set tabstop=4       " Make tab 4 columns wide
+set softtabstop=4   " Hitting tab indents at most 4 columns
+set shiftwidth=4    " Number of spaces to use for auto indent
+set shiftround      " Round indentation to multiples of shiftwidth
+set expandtab		" Indent with spaces (I'm not a fan but seems to be more standard)
+set textwidth=0     " Don't enforce a column limit
+
+" Searching
+set gdefault                " Never have to type /g at the end of search / replace again
+set ignorecase smartcase    " Search is case sensitive iff it contains uppercase letters
+set hlsearch                " Highlight search results
+nnoremap <silent> <leader>, :noh<cr> " Leader clears search highlight
+set incsearch               " Searched term appears as its typed
+set showmatch               " Highlights the brace that matches the one under the cursor
+
+" Autocommands
+augroup vimrcEx
+  au!
+  " Set tab size to 2 for html files
+  autocmd FileType html* setlocal shiftwidth=2 softtabstop=2 tabstop=2
+  " Automatically delete trailing whitespace on save
+  autocmd BufWritePre * %s/\s\+$//e
+augroup END
+
+" Quicker movement between windows
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
