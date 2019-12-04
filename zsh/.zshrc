@@ -7,10 +7,12 @@ source /usr/local/etc/profile.d/z.sh
 source ~/dotfiles/zsh/ohmyzsh/plugins/git/git.plugin.zsh
 source ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/dotfiles/zsh/fixls.zsh
+source ~/dotfiles/zsh/ohmyzsh/plugins/virtualenv/virtualenv.plugin.zsh
 
 # Load plugins
 plugins=(
     git
+    virtualenv
     z
     zsh-syntax-highlighting
 )
@@ -20,7 +22,7 @@ setopt PROMPT_SUBST # Enable command substitution
 set_prompt() {
 
 	# [
-	PS1="["
+	PS1="%{$fg[green]%}$(virtualenv_prompt_info)%{$reset_color%}% ["
 
 	PS1+="%{$fg_bold[cyan]%}%80<..<%~%{$reset_color%}"
 
@@ -53,7 +55,7 @@ precmd_functions+=set_prompt
 alias ll="ls -al"
 alias attu="ssh lucianod@attu.cs.washington.edu"
 alias cs="cd ~/Google\ Drive/Documents/University\ of\ Washington/Computer\ Science/"
-alias f="vim -p"
+alias v="vim -p"
 alias python=python3
 alias pip=pip3
 alias jl="jupyter lab"
@@ -66,3 +68,5 @@ export CPPFLAGS="-I/usr/local/opt/openssl/include"
 export PATH="/usr/local/opt/sqlite/bin:$PATH":$PATH
 export VISUAL=vim   # Default to vim editor
 chpwd() ls          # Always ls after cd
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+

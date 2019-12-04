@@ -14,8 +14,8 @@ syntax on                   " Enable syntax highlighting
 colorscheme industry
 
 " Plugins
-call plug#begin('~/.vim/plugged')
-
+call plug#begin('~/.vim/plugins')
+Plug 'tpope/vim-surround'
 call plug#end()
 
 " Indentation
@@ -28,22 +28,26 @@ set shiftwidth=4    " Number of spaces to use for auto indent
 set shiftround      " Round indentation to multiples of shiftwidth
 set expandtab		" Indent with spaces (I'm not a fan but seems to be more standard)
 set textwidth=0     " Don't enforce a column limit
+let g:html_indent_script1 = "inc"   " Indent script inside html files
+let g:html_indent_style1 = "inc"    " Indent script inside html files
 
 " Searching
 set gdefault                " Never have to type /g at the end of search / replace again
 set ignorecase smartcase    " Search is case sensitive iff it contains uppercase letters
 set hlsearch                " Highlight search results
-nnoremap <silent> <leader>, :noh<cr> " Leader clears search highlight
+nnoremap <silent> <leader>l :noh<cr> " Leader l clears search highlight
 set incsearch               " Searched term appears as its typed
 set showmatch               " Highlights the brace that matches the one under the cursor
 
 " Autocommands
-augroup vimrcEx
+augroup vimrc
   au!
   " Set tab size to 2 for html files
-  autocmd FileType html* setlocal shiftwidth=2 softtabstop=2 tabstop=2
+  au FileType htmldjango setlocal shiftwidth=2 softtabstop=2 tabstop=2
   " Automatically delete trailing whitespace on save
-  autocmd BufWritePre * %s/\s\+$//e
+  au BufWritePre * %s/\s\+$//e
+  " Hack to prevent javascript syntax highlighting from breaking intermittently when scrolling
+  au BufEnter *.html syntax sync minlines=20
 augroup END
 
 " Quicker movement between windows
@@ -52,6 +56,14 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+" Capital H,J,K,L move all the way in that direction
+nnoremap H 0
+nnoremap L $
+nnoremap J G
+nnoremap K gg
+
+map <tab> %
+
 set undofile                " Maintain undo history between sessions
 set undodir=~/.vim/undodir  " Keep undo files in undodir
-set keywordprg=:Man         " When K is pressed man page will open in vim instead of default
+set keywordprg=:Man         " When K is pressed man page will open in vim
