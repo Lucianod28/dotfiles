@@ -14,7 +14,7 @@ syntax on                   " Enable syntax highlighting
 colorscheme industry
 
 " Plugins
-call plug#begin('~/.vim/plugins')
+call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-surround'
 call plug#end()
 
