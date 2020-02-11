@@ -19,6 +19,9 @@ Plug 'tpope/vim-surround'
 Plug 'pangloss/vim-javascript'
 call plug#end()
 
+" Jump to matching html tag with %
+runtime macros/matchit.vim
+
 " Indentation
 filetype indent on  " Turn filetype detection on and indent based on filetype
 set smartindent		" Indent according to filetype
@@ -52,6 +55,9 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+
+" Split windows open at bottom or right
+set splitbelow splitright
 
 " Capital H,J,K,L move all the way in that direction
 nnoremap H 0
