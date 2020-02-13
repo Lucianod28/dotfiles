@@ -21,7 +21,9 @@ plugins=(
 setopt PROMPT_SUBST # Enable command substitution
 set_prompt() {
 
-	# [
+	# shows virtualenv name if activated, and [ always
+    ZSH_THEME_VIRTUALENV_PREFIX="["
+    ZSH_THEME_VIRTUALENV_SUFFIX="]"
 	PS1="%{$fg[green]%}$(virtualenv_prompt_info)%{$reset_color%}% ["
 
 	PS1+="%{$fg_bold[cyan]%}%80<..<%~%{$reset_color%}"
@@ -59,6 +61,7 @@ alias v="vim -p"
 alias python=python3
 alias pip=pip3
 alias jl="jupyter lab"
+alias hg="history 1|grep "
 
 # System variables, mainly to make pip work properly
 export CPATH=/Library/Developer/CommandLineTools/usr/include/c++/v1
