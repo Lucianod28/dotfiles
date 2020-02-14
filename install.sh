@@ -14,4 +14,5 @@ if [ ! -f ~/.vim/autoload/plug.vim ]; then
 fi
 vim +PlugInstall +qall
 
-mkdir ~/.vim/undodir
+mkdir ~/.vim/undo
+mkdir ~/.vim/swap

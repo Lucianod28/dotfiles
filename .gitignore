@@ -1,5 +1,6 @@
 *~
-.vim/undodir/
+.vim/undo/
+.vim/swap/
 .vim/plugged/
 .vim/autoload/
 .vim/.netrwhist

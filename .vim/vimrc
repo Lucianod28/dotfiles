@@ -68,5 +68,6 @@ nnoremap K gg
 map <tab> %
 
 set undofile                " Maintain undo history between sessions
-set undodir=~/.vim/undodir  " Keep undo files in undodir
+set directory=~/.vim/swap// " Keep swap files in directory
+set undodir=~/.vim/undo//   " Keep undo files in undodir
 set keywordprg=:Man         " When K is pressed man page will open in vim
