@@ -53,13 +53,13 @@ export KEYTIMEOUT=1
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] ||
      [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
+    echo -ne '\e[2 q' # 2 is solid block
 
   elif [[ ${KEYMAP} == main ]] ||
        [[ ${KEYMAP} == viins ]] ||
        [[ ${KEYMAP} = '' ]] ||
        [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
+    echo -ne '\e[6 q' # 6 is solid cursor
   fi
 }
 zle -N zle-keymap-select
@@ -67,7 +67,7 @@ zle -N zle-keymap-select
 zle-line-init() {
     # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
     zle -K viins
-    echo -ne "\e[5 q"
+    echo -ne "\e[6 q"
 }
 zle -N zle-line-init
 

@@ -48,6 +48,10 @@ augroup vimrc
   au FileType html* setlocal shiftwidth=2 softtabstop=2 tabstop=2
   " Automatically delete trailing whitespace on save
   au BufWritePre * %s/\s\+$//e
+  " Reset the cursor to block on start
+  autocmd VimEnter * silent !echo -ne "\e[2 q"
+  " Clear garbage characters from screen
+  autocmd VimEnter * redraw!
 augroup END
 
 " Quicker movement between windows
@@ -76,9 +80,3 @@ set keywordprg=:Man         " When K is pressed man page will open in vim
 let &t_SI = "\e[6 q" " bar
 let &t_EI = "\e[2 q" " block
 set ttimeoutlen=0
-
-" Reset the cursor to block on start
-augroup myCmds
-au!
-autocmd VimEnter * silent !echo -ne "\e[2 q"
-augroup END
