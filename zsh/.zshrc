@@ -1,26 +1,7 @@
-autoload -U colors && colors # Make colors callable by name
-
-# Source plugins
-autoload -Uz compinit
-compinit
-source /usr/local/etc/profile.d/z.sh
-source ~/dotfiles/zsh/ohmyzsh/plugins/git/git.plugin.zsh
-source ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/dotfiles/zsh/fixls.zsh
-source ~/dotfiles/zsh/ohmyzsh/plugins/virtualenv/virtualenv.plugin.zsh
-
-# Load plugins
-plugins=(
-    git
-    virtualenv
-    z
-    zsh-syntax-highlighting
-)
-
 # Prompt (adapted from Parth Mehrotra)
+autoload -U colors && colors
 setopt PROMPT_SUBST # Enable command substitution
 set_prompt() {
-
 	# shows virtualenv name if activated, and [ always
     ZSH_THEME_VIRTUALENV_PREFIX="["
     ZSH_THEME_VIRTUALENV_SUFFIX="]"
@@ -52,11 +33,70 @@ set_prompt() {
 }
 precmd_functions+=set_prompt
 
+# Completion
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+
+# Use vim keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+
+export KEYTIMEOUT=1
+
+# Change cursor shape for different vi modes.
+# Next 3 functions taken from (https://github.com/LukeSmithxyz/voidrice)
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+     [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]] ||
+       [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
+
+zle-line-init() {
+    # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    zle -K viins
+    echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+
+# Use lf to switch directories and bind it to ctrl-o
+lfcd () {
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        if [ -d "$dir" ]; then
+            if [ "$dir" != "$(pwd)" ]; then
+                cd "$dir"
+            fi
+        fi
+    fi
+}
+bindkey -s '^o' 'lfcd\n'
+
+# Source plugins
+source /usr/local/etc/profile.d/z.sh
+source ~/dotfiles/zsh/ohmyzsh/plugins/git/git.plugin.zsh
+source ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/dotfiles/zsh/fixls.zsh
+source ~/dotfiles/zsh/ohmyzsh/plugins/virtualenv/virtualenv.plugin.zsh
 
 # Aliases
 alias ll="ls -al"
 alias attu="ssh lucianod@attu.cs.washington.edu"
-alias cs="cd ~/Google\ Drive/Documents/University\ of\ Washington/Computer\ Science/"
 alias v="vim -p"
 alias python=python3
 alias pip=pip3
@@ -72,4 +112,3 @@ export PATH="/usr/local/opt/sqlite/bin:$PATH":$PATH
 export VISUAL=vim   # Default to vim editor
 chpwd() ls          # Always ls after cd
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-

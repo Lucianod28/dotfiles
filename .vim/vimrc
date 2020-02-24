@@ -71,3 +71,14 @@ set undofile                " Maintain undo history between sessions
 set directory=~/.vim/swap// " Keep swap files in directory
 set undodir=~/.vim/undo//   " Keep undo files in undodir
 set keywordprg=:Man         " When K is pressed man page will open in vim
+
+" Use block cursor for normal mode, bar for insert
+let &t_SI = "\e[6 q" " bar
+let &t_EI = "\e[2 q" " block
+set ttimeoutlen=0
+
+" Reset the cursor to block on start
+augroup myCmds
+au!
+autocmd VimEnter * silent !echo -ne "\e[2 q"
+augroup END
