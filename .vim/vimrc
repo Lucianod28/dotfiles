@@ -79,4 +79,5 @@ set keywordprg=:Man         " When K is pressed man page will open in vim
 " Use block cursor for normal mode, bar for insert
 let &t_SI = "\e[6 q" " bar
 let &t_EI = "\e[2 q" " block
+set timeoutlen=1000
 set ttimeoutlen=0
