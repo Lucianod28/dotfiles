@@ -94,6 +94,17 @@ source ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/dotfiles/zsh/fixls.zsh
 source ~/dotfiles/zsh/ohmyzsh/plugins/virtualenv/virtualenv.plugin.zsh
 
+# System variables, mainly to make pip work properly
+export CPATH=/Library/Developer/CommandLineTools/usr/include/c++/v1
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/openssl/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl/include"
+export PATH="/usr/local/opt/sqlite/bin:$PATH":$PATH
+export VISUAL=vim   # Default to vim editor
+export EDITOR=vim
+chpwd() ls          # Always ls after cd
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
 # Aliases
 alias ll="ls -al"
 alias attu="ssh lucianod@attu.cs.washington.edu"
@@ -102,13 +113,5 @@ alias python=python3
 alias pip=pip3
 alias jl="jupyter lab"
 alias hg="history 1|grep "
-
-# System variables, mainly to make pip work properly
-export CPATH=/Library/Developer/CommandLineTools/usr/include/c++/v1
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/openssl/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl/include"
-export PATH="/usr/local/opt/sqlite/bin:$PATH":$PATH
-export VISUAL=vim   # Default to vim editor
-chpwd() ls          # Always ls after cd
-export VIRTUAL_ENV_DISABLE_PROMPT=1
+alias zshrc='${=EDITOR} ~/.zshrc'
+alias vimrc='${=EDITOR} ~/.vim/vimrc'
