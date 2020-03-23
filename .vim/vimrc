@@ -45,7 +45,7 @@ set showmatch               " Highlights the brace that matches the one under th
 augroup vimrc
   au!
   " Set tab size to 2 for html files
-  au FileType html* setlocal shiftwidth=2 softtabstop=2 tabstop=2
+  au FileType html*,yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
   " Automatically delete trailing whitespace on save
   au BufWritePre * %s/\s\+$//e
   " Reset the cursor to block on start
