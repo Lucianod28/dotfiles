@@ -63,13 +63,15 @@ nnoremap <C-l> <C-w>l
 " Split windows open at bottom or right
 set splitbelow splitright
 
-" Capital H,J,K,L move all the way in that direction
-nnoremap H 0
-nnoremap L $
-nnoremap J G
-nnoremap K gg
+" H, L to change tabs
+nnoremap H gT
+nnoremap L gt
 
 map <tab> %
+
+" Shortcuts for copy/pasting to/from system clipboard
+noremap <leader>y "*y
+noremap <leader>p "*p
 
 set undofile                " Maintain undo history between sessions
 set directory=~/.vim/swap// " Keep swap files in directory
