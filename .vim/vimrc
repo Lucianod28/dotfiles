@@ -8,7 +8,7 @@ set shell=/bin/zsh  " Use zsh
 set number relativenumber   " Use relative line numbers
 set colorcolumn=100         " Highlight column 100
 set visualbell              " No more error sound
-set cursorline              " Highlight the current line
+set cursorline              " Underline the current line
 set scrolloff=10            " Start scrolling when we're 10 lines from the bottom of the screen
 syntax on                   " Enable syntax highlighting
 colorscheme industry
@@ -40,6 +40,8 @@ set hlsearch                " Highlight search results
 nnoremap <silent> <leader>l :noh<cr> " Leader l clears search highlight
 set incsearch               " Searched term appears as its typed
 set showmatch               " Highlights the brace that matches the one under the cursor
+
+set backspace=indent,eol,start
 
 " Autocommands
 augroup vimrc
