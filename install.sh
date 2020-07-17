@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Update plugins
-git submodule update --recursive --remote
+git submodule update --init --recursive
 
 # Symlink config files
 ln -sv ~/dotfiles/.vim ~
