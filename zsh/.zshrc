@@ -95,7 +95,7 @@ setopt hist_verify              # show command with history expansion to user be
 setopt append_history           # add commands to HISTFILE on shell exit
 
 # Source plugins
-source /usr/local/etc/profile.d/z.sh
+source ~/dotfiles/zsh/zsh-z/zsh-z.plugin.zsh
 source ~/dotfiles/zsh/ohmyzsh/plugins/git/git.plugin.zsh
 source ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/dotfiles/zsh/fixls.zsh
