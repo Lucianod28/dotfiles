@@ -31,7 +31,7 @@ set_prompt() {
 	# ]
 	PS1+="]: "
 }
-precmd_functions+=set_prompt
+precmd_functions+=(set_prompt)
 
 # Completion
 autoload -U compinit
