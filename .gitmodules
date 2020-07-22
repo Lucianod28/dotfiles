@@ -7,3 +7,12 @@
 [submodule "zsh/zsh-z"]
 	path = zsh/zsh-z
 	url = https://github.com/agkozak/zsh-z
+[submodule ".vim/pack/plugins/start/vim-surround"]
+	path = .vim/pack/plugins/start/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule ".vim/pack/plugins/start/vim-javascript"]
+	path = .vim/pack/plugins/start/vim-javascript
+	url = https://github.com/pangloss/vim-javascript
+[submodule ".vim/pack/plugins/start/nerdtree"]
+	path = .vim/pack/plugins/start/nerdtree
+	url = https://github.com/preservim/nerdtree
