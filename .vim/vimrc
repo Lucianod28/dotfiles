@@ -11,7 +11,7 @@ set visualbell              " No more error sound
 set cursorline              " Underline the current line
 set scrolloff=10            " Start scrolling when we're 10 lines from the bottom of the screen
 syntax on                   " Enable syntax highlighting
-colorscheme industry
+colorscheme zenburn
 
 " Jump to matching html tag with %
 runtime macros/matchit.vim
