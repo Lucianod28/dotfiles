@@ -111,6 +111,7 @@ export VISUAL=vim   # Default to vim editor
 export EDITOR=vim
 chpwd() ls          # Always ls after cd
 export VIRTUAL_ENV_DISABLE_PROMPT=1
+export GREP_OPTIONS='--color=auto'
 
 # Aliases
 alias ll="ls -al"
