@@ -111,15 +111,15 @@ export VISUAL=vim   # Default to vim editor
 export EDITOR=vim
 chpwd() ls          # Always ls after cd
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-export GREP_OPTIONS='--color=auto'
 
 # Aliases
-alias ll="ls -al"
+alias ll='ls -al'
+alias grep='grep --color'
 alias attu="ssh lucianod@attu.cs.washington.edu"
 alias v="vim -p"
 alias python=python3
 alias pip=pip3
 alias jl="jupyter lab"
-alias hg="history 1|grep "
-alias zshrc='${=EDITOR} ~/.zshrc'
-alias vimrc='${=EDITOR} ~/.vim/vimrc'
+alias hg='history 1|grep '
+alias zshrc="$EDITOR ~/.zshrc"
+alias vimrc="$EDITOR ~/.vim/vimrc"
