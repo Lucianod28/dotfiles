@@ -95,18 +95,14 @@ setopt hist_verify              # show command with history expansion to user be
 setopt append_history           # add commands to HISTFILE on shell exit
 
 # Source plugins
-source ~/dotfiles/zsh/zsh-z/zsh-z.plugin.zsh
-source ~/dotfiles/zsh/ohmyzsh/plugins/git/git.plugin.zsh
-source ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/dotfiles/zsh/fixls.zsh
-source ~/dotfiles/zsh/ohmyzsh/plugins/virtualenv/virtualenv.plugin.zsh
+PLUGINS=$HOME/dotfiles/.zsh/plugins
+source $PLUGINS/zsh-z/zsh-z.plugin.zsh
+source $PLUGINS/ohmyzsh/plugins/git/git.plugin.zsh
+source $PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $PLUGINS/fixls.zsh
+source $PLUGINS/ohmyzsh/plugins/virtualenv/virtualenv.plugin.zsh
 
-# System variables, mainly to make pip work properly
-export CPATH=/Library/Developer/CommandLineTools/usr/include/c++/v1
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/openssl/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl/include"
-export PATH="/usr/local/opt/sqlite/bin:$PATH":$PATH
+# System variables
 export VISUAL=vim   # Default to vim editor
 export EDITOR=vim
 chpwd() ls          # Always ls after cd
@@ -115,11 +111,16 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 # Aliases
 alias ll='ls -al'
 alias grep='grep --color'
-alias attu="ssh lucianod@attu.cs.washington.edu"
 alias v="vim -p"
 alias python=python3
 alias pip=pip3
 alias jl="jupyter lab"
 alias hg='history 1|grep '
-alias zshrc="$EDITOR ~/.zshrc"
-alias vimrc="$EDITOR ~/.vim/vimrc"
+alias zshrc="$EDITOR $HOME/.zshrc"
+alias vimrc="$EDITOR $HOME/.vim/vimrc"
+
+# Source local (machine-specific) configuration if present
+LOCAL_CONFIG=$HOME/dotfiles/.zsh/local
+if [ -f $LOCAL_CONFIG ]; then
+    source $LOCAL_CONFIG
+fi
