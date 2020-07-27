@@ -1,6 +1,5 @@
 *~
 .vim/undo/
 .vim/swap/
-.vim/plugged/
-.vim/autoload/
 .vim/.netrwhist
+.zsh/local
