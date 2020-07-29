@@ -1,4 +1,4 @@
-set nocompatible    " Use vim settings
+set nocompatible    " Use vim mode (rather than vi)
 
 let mapleader=" "   " Use space as leader
 
@@ -37,13 +37,20 @@ set showmatch               " Highlights the brace that matches the one under th
 
 set backspace=indent,eol,start
 
+fun! <SID>StripTrailingWhitespace()
+    let l = line(".")
+    let c = col(".")
+    keepp %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
 " Autocommands
 augroup vimrc
   au!
   " Set tab size to 2 for html files
   au FileType html*,yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
   " Automatically delete trailing whitespace on save
-  au BufWritePre * %s/\s\+$//e
+  au BufWritePre * call <SID>StripTrailingWhitespace()
   " Reset the cursor to block on start
   autocmd VimEnter * silent !echo -ne "\e[2 q"
   " Clear garbage characters from screen

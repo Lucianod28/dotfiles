@@ -9,3 +9,4 @@ git clone https://github.com/Lucianod28/dotfiles
 cd dotfiles
 ./install.sh
 ```
+If you have any machine-specific zsh configuration you can create a `.zsh/local` file and add it there.

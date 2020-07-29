@@ -2,4 +2,4 @@
 .vim/undo/
 .vim/swap/
 .vim/.netrwhist
-.zsh/local
+.zsh/local.sh
