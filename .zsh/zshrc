@@ -22,6 +22,10 @@ source $ZSHDIR/plugins/vim_mode.zsh
 source $ZSHDIR/plugins/zsh-z/zsh-z.plugin.zsh
 source $ZSHDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Use prefix of what's typed when searching history with arrows
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
+
 # Set system variables
 export VISUAL=vim   # Default to vim editor
 export EDITOR=vim

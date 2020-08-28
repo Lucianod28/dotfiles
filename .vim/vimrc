@@ -27,6 +27,10 @@ set shiftround      " Round indentation to multiples of shiftwidth
 set expandtab		" Indent with spaces (I'm not a fan but seems to be more standard)
 set textwidth=0     " Don't enforce a column limit
 
+" Folding
+set foldmethod=indent   " Fold based on indent
+set foldlevel=99        " Start unfolded
+
 " Searching
 set gdefault                " Never have to type /g at the end of search / replace again
 set ignorecase smartcase    " Search is case sensitive iff it contains uppercase letters
