@@ -17,7 +17,7 @@ colorscheme zenburn
 runtime macros/matchit.vim
 
 " Indentation
-filetype indent on  " Turn filetype detection on and indent based on filetype
+filetype indent on  " Turn filetype detection on for indentation
 set smartindent		" Indent according to filetype
 set autoindent		" Copy indent from previous line to next line
 set tabstop=4       " Make tab 4 columns wide
@@ -26,6 +26,8 @@ set shiftwidth=4    " Number of spaces to use for auto indent
 set shiftround      " Round indentation to multiples of shiftwidth
 set expandtab		" Indent with spaces (I'm not a fan but seems to be more standard)
 set textwidth=0     " Don't enforce a column limit
+
+filetype plugin on  " turn filetype detection on for plugins
 
 " Folding
 set foldmethod=indent   " Fold based on indent
@@ -73,8 +75,6 @@ set splitbelow splitright
 " H, L to change tabs
 nnoremap H gT
 nnoremap L gt
-
-map <tab> %
 
 " Shortcuts for copy/pasting to/from system clipboard
 noremap <leader>y "*y
