@@ -6,31 +6,14 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 
-# Configure history
-setopt extended_history         # record timestamp of command in HISTFILE
-setopt hist_expire_dups_first   # delete duplicates first when HISTFILE size exceeds HISTSIZE
-setopt hist_ignore_dups         # ignore duplicated commands history list
-setopt hist_verify              # show command with history expansion to user before running it
-setopt append_history           # add commands to HISTFILE on shell exit
-
 # Source plugins
 source $ZSHDIR/plugins/fixls.zsh
 source $ZSHDIR/plugins/ohmyzsh/plugins/git/git.plugin.zsh
 source $ZSHDIR/plugins/ohmyzsh/plugins/virtualenv/virtualenv.plugin.zsh
 source $ZSHDIR/plugins/prompt.zsh
 source $ZSHDIR/plugins/vim_mode.zsh
-source $ZSHDIR/plugins/zsh-z/zsh-z.plugin.zsh
 source $ZSHDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Use prefix of what's typed when searching history with arrows
-bindkey '^[[A' up-line-or-search
-bindkey '^[[B' down-line-or-search
-
-# Set system variables
-export VISUAL=vim   # Default to vim editor
-export EDITOR=vim
-chpwd() ls          # Always ls after cd
-export VIRTUAL_ENV_DISABLE_PROMPT=1
+source $ZSHDIR/plugins/zsh-z/zsh-z.plugin.zsh
 
 # Source aliases
 source $ZSHDIR/alias.sh
@@ -39,3 +22,25 @@ source $ZSHDIR/alias.sh
 if [ -f $ZSHDIR/local.sh ]; then
     source $ZSHDIR/local.sh
 fi
+
+# Configure history
+export HISTFILE=$ZSHDIR/history
+export HISTSIZE=100000
+export SAVEHIST=100000
+setopt extended_history         # record timestamp of command in HISTFILE
+setopt hist_find_no_dups        # do not show duplicate commands when searching through history
+setopt hist_ignore_dups         # do not record commands that are the same as the last recorded command
+setopt hist_verify              # history expansion shows command instead of executing immediately
+setopt inc_append_history_time  # add commands to HISTFILE immediately after execution
+
+# Use prefix of what is typed when searching history with arrows
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
+
+# Set POSIX variables
+export VISUAL=vim
+export EDITOR=vim
+
+# Miscellaneous
+chpwd() ls  # Always ls after cd
+export VIRTUAL_ENV_DISABLE_PROMPT=1
