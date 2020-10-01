@@ -6,6 +6,10 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 
+# Set POSIX variables
+export VISUAL=vim
+export EDITOR=vim
+
 # Source plugins
 source $ZSHDIR/plugins/fixls.zsh
 source $ZSHDIR/plugins/ohmyzsh/plugins/git/git.plugin.zsh
@@ -36,10 +40,6 @@ setopt inc_append_history_time  # add commands to HISTFILE immediately after exe
 # Use prefix of what is typed when searching history with arrows
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
-
-# Set POSIX variables
-export VISUAL=vim
-export EDITOR=vim
 
 # Miscellaneous
 chpwd() ls  # Always ls after cd
