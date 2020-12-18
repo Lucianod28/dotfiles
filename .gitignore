@@ -1,6 +1,4 @@
 *~
-.vim/swap/
-.vim/undo/
-.vim/.netrwhist
-.zsh/history
-.zsh/local.sh
+vim/.netrwhist
+zsh/history
+zsh/local.sh

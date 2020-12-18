@@ -1,24 +1,24 @@
 [submodule "zsh/ohmyzsh"]
-	path = .zsh/plugins/ohmyzsh
+	path = zsh/plugins/ohmyzsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
 [submodule "zsh/zsh-syntax-highlighting"]
-	path = .zsh/plugins/zsh-syntax-highlighting
+	path = zsh/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
 [submodule "zsh/zsh-z"]
-	path = .zsh/plugins/zsh-z
+	path = zsh/plugins/zsh-z
 	url = https://github.com/agkozak/zsh-z
 [submodule ".vim/pack/plugins/start/vim-surround"]
-	path = .vim/pack/plugins/start/vim-surround
+	path = vim/pack/plugins/start/vim-surround
 	url = https://github.com/tpope/vim-surround
 [submodule ".vim/pack/plugins/start/vim-javascript"]
-	path = .vim/pack/plugins/start/vim-javascript
+	path = vim/pack/plugins/start/vim-javascript
 	url = https://github.com/pangloss/vim-javascript
 [submodule ".vim/pack/plugins/start/nerdtree"]
-	path = .vim/pack/plugins/start/nerdtree
+	path = vim/pack/plugins/start/nerdtree
 	url = https://github.com/preservim/nerdtree
 [submodule ".vim/pack/plugins/start/vim-commentary"]
-	path = .vim/pack/plugins/start/vim-commentary
+	path = vim/pack/plugins/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary
 [submodule ".vim/pack/plugins/start/gruvbox"]
-	path = .vim/pack/plugins/start/gruvbox
+	path = vim/pack/plugins/start/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
