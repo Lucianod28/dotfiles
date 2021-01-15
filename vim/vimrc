@@ -9,7 +9,7 @@ set number relativenumber   " Use relative line numbers
 set colorcolumn=100         " Highlight column 100
 set visualbell              " No more error sound
 set cursorline              " Underline the current line
-set scrolloff=10            " Start scrolling when we're 10 lines from the bottom of the screen
+set scrolloff=6             " Start scrolling when cursor is 6 lines from top/bottom of the screen
 syntax on                   " Enable syntax highlighting
 
 " gruvbox
@@ -22,7 +22,6 @@ runtime macros/matchit.vim
 
 " Indentation
 filetype indent on  " Turn filetype detection on for indentation
-set smartindent		" Indent according to filetype
 set autoindent		" Copy indent from previous line to next line
 set tabstop=4       " Make tab 4 columns wide
 set softtabstop=4   " Hitting tab indents at most 4 columns
