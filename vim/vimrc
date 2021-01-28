@@ -21,7 +21,7 @@ colorscheme gruvbox
 runtime macros/matchit.vim
 
 " Indentation
-filetype indent on  " Turn filetype detection on for indentation
+filetype indent on  " Enable filetype detection for indentation
 set autoindent		" Copy indent from previous line to next line
 set tabstop=4       " Make tab 4 columns wide
 set softtabstop=4   " Hitting tab indents at most 4 columns
@@ -30,7 +30,7 @@ set shiftround      " Round indentation to multiples of shiftwidth
 set expandtab		" Indent with spaces (I'm not a fan but seems to be more standard)
 set textwidth=0     " Don't enforce a column limit
 
-filetype plugin on  " turn filetype detection on for plugins
+filetype plugin on  " Enable filetype detection for plugins
 
 " Folding
 set foldmethod=indent   " Fold based on indent
@@ -41,7 +41,7 @@ set gdefault                " Never have to type /g at the end of search / repla
 set ignorecase smartcase    " Search is case sensitive iff it contains uppercase letters
 set hlsearch                " Highlight search results
 nnoremap <silent> <leader>l :noh<cr> " Leader l clears search highlight
-set incsearch               " Searched term appears as its typed
+set incsearch               " Searched term appears as it's typed
 set showmatch               " Highlights the brace that matches the one under the cursor
 
 set backspace=indent,eol,start
@@ -56,8 +56,8 @@ endfun
 " Autocommands
 augroup vimrc
   au!
-  " Set tab size to 2 for html files
-  au FileType html*,yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
+  " Set tab size to 2 for html, yaml and javascript files
+  au FileType html*,yaml,javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2
   " Automatically delete trailing whitespace on save
   au BufWritePre * call <SID>StripTrailingWhitespace()
   " Reset the cursor to block on start
@@ -88,7 +88,7 @@ set directory=~/.vim/swap// " Keep swap files in directory
 set undodir=~/.vim/undo//   " Keep undo files in undodir
 set keywordprg=:Man         " When K is pressed man page will open in vim
 
-" Use block cursor for normal mode, bar for insert
+" Show block cursor for normal mode, bar for insert
 let &t_SI = "\e[6 q" " bar
 let &t_EI = "\e[2 q" " block
 set timeoutlen=1000
