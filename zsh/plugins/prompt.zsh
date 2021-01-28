@@ -7,7 +7,7 @@ set_prompt() {
     ZSH_THEME_VIRTUALENV_SUFFIX="]"
 	PS1="%{$fg[green]%}$(virtualenv_prompt_info)%{$reset_color%}% ["
 
-	PS1+="%{$fg_bold[cyan]%}%80<..<%~%{$reset_color%}"
+	PS1+="%{$fg_bold[cyan]%}%~%{$reset_color%}"
 
 	# Status Code
 	PS1+='%(?.., %{$fg[red]%}%?%{$reset_color%})'
