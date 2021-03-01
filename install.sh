@@ -96,7 +96,7 @@ cd "$(dirname "$0")"
 DOTFILES_ROOT=$(pwd -P)
 
 # Update git submodules (plugins and vim color scheme)
-git submodule update --init --recursive
+git submodule update --init --recursive --remote
 
 # Symlink dotfiles
 overwrite_all=false backup_all=false skip_all=false

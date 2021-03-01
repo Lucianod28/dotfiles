@@ -1,24 +1,32 @@
 [submodule "zsh/ohmyzsh"]
+	branch = master
 	path = zsh/plugins/ohmyzsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
 [submodule "zsh/zsh-syntax-highlighting"]
+	branch = master
 	path = zsh/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
 [submodule "zsh/zsh-z"]
+	branch = master
 	path = zsh/plugins/zsh-z
 	url = https://github.com/agkozak/zsh-z
 [submodule ".vim/pack/plugins/start/vim-surround"]
+	branch = master
 	path = vim/pack/plugins/start/vim-surround
 	url = https://github.com/tpope/vim-surround
 [submodule ".vim/pack/plugins/start/vim-javascript"]
+	branch = master
 	path = vim/pack/plugins/start/vim-javascript
 	url = https://github.com/pangloss/vim-javascript
 [submodule ".vim/pack/plugins/start/nerdtree"]
+	branch = master
 	path = vim/pack/plugins/start/nerdtree
 	url = https://github.com/preservim/nerdtree
 [submodule ".vim/pack/plugins/start/vim-commentary"]
+	branch = master
 	path = vim/pack/plugins/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary
 [submodule ".vim/pack/plugins/start/gruvbox"]
+	branch = master
 	path = vim/pack/plugins/start/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
