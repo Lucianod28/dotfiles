@@ -38,8 +38,12 @@ setopt hist_verify              # history expansion shows command instead of exe
 setopt inc_append_history_time  # add commands to HISTFILE immediately after execution
 
 # Use prefix of what is typed when searching history with arrows
-bindkey '^[[A' up-line-or-search
-bindkey '^[[B' down-line-or-search
+autoload -Uz up-line-or-beginning-search
+autoload -Uz down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey '^[[A' up-line-or-beginning-search
+bindkey '^[[B' down-line-or-beginning-search
 
 # Miscellaneous
 chpwd() ls  # Always ls after cd
