@@ -80,8 +80,8 @@ nnoremap H gT
 nnoremap L gt
 
 " Shortcuts for copy/pasting to/from system clipboard
-noremap <leader>y "*y
-noremap <leader>p "*p
+noremap <leader>y "+y
+noremap <leader>p "+p
 
 set undofile                " Maintain undo history between sessions
 set directory=~/.vim/swap// " Keep swap files in directory
