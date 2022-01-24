@@ -13,7 +13,6 @@ set scrolloff=6             " Start scrolling when cursor is 6 lines from top/bo
 syntax on                   " Enable syntax highlighting
 
 " gruvbox
-let g:gruvbox_contrast_dark='soft'
 set background=dark
 colorscheme gruvbox
 
@@ -64,6 +63,8 @@ augroup vimrc
   autocmd VimEnter * silent !echo -ne "\e[2 q"
   " Clear garbage characters from screen
   autocmd VimEnter * redraw!
+  " Store clipboard register contents in system clipboard
+  autocmd VimLeave * call system("xsel -ib", getreg('+'))
 augroup END
 
 " Quicker movement between windows
