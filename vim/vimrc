@@ -55,8 +55,8 @@ endfun
 " Autocommands
 augroup vimrc
   au!
-  " Set tab size to 2 for html, yaml and javascript files
-  au FileType html*,yaml,javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2
+  " Set tab size to 2 for some file types
+  au FileType html*,yaml,javascript,typescript setlocal shiftwidth=2 softtabstop=2 tabstop=2
   " Automatically delete trailing whitespace on save
   au BufWritePre * call <SID>StripTrailingWhitespace()
   " Reset the cursor to block on start
