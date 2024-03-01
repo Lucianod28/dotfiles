@@ -12,6 +12,7 @@ export EDITOR=vim
 
 # Source plugins
 source $ZSHDIR/plugins/fixls.zsh
+source $ZSHDIR/plugins/ohmyzsh/lib/git.zsh
 source $ZSHDIR/plugins/ohmyzsh/plugins/git/git.plugin.zsh
 source $ZSHDIR/plugins/ohmyzsh/plugins/virtualenv/virtualenv.plugin.zsh
 source $ZSHDIR/plugins/prompt.zsh
