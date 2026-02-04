@@ -106,7 +106,6 @@ link_file "$DOTFILES_ROOT/zsh/zshrc" "$HOME/.zshrc"
 # Configure git
 # By running git config commands instead of using a .gitconfig file, we avoid sourcing a local git
 # configuration or asking for username and other info when installing.
-git config --global pull.rebase true
 git config --global rerere.enabled true
 git config --global rerere.autoupdate true
 
